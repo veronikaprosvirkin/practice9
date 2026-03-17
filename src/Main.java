@@ -9,7 +9,7 @@ public class Main {
         List<Ticket> tickets = new ArrayList<>();
         tickets.add(new Ticket(1, LocalDateTime.now()));
         tickets.add(new Ticket(2,LocalDateTime.of(2026,3,17,11,40)));
-
+        tickets.add(new Ticket(1, LocalDateTime.of(2026, 3, 17, 8, 00)));
 
         Collections.sort(tickets, new Comparator<Ticket>() {
             @Override
@@ -20,5 +20,10 @@ public class Main {
         tickets.sort((t1, t2) -> Integer.compare(t1.getPriority(), t2.getPriority()));
 
         tickets.sort(Comparator.comparingInt(Ticket::getPriority));
+
+        TicketSorter ticketSorter = new TicketSorter();
+        System.out.println("Before sorting: " + tickets);
+        ticketSorter.sortTickets(tickets, "priorityThenCreatedAt");
+        System.out.println("After sorting: " + tickets);
     }
 }

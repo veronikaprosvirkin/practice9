@@ -3,7 +3,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class TicketSorter {
-
     public void sortTickets(List<Ticket> tickets, String strategy) {
         Comparator<Ticket> comparator = switch (strategy) {
             case "priority" -> TicketComparators.BY_PRIORITY;
